@@ -2,7 +2,7 @@
 
 if(isset($_FILES['csv'])) {
     $xml = simplexml_load_file("http://localhost/dataBaseConnect.xml");
-    $dsn = "{$xml->dbtype}:dbname={$xml->dbname};host={$xml->host}/";
+    $dsn = "{$xml->dbtype}:dbname={$xml->dbname};host={$xml->host}";
     $username = (string)$xml->username;
     //add $password = (string)$xml->password; optionally
     $db = new PDO($dsn, $username); //add $password as argument to PDO optionally
