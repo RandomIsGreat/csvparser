@@ -13,7 +13,7 @@ if(isset($_FILES['csv'])) {
     $inputString = '(';
     foreach ($rowToParse as $el) {
             $inputString .='?, ';
-            $tableCreationSql .= " $el varchar(255) NULL,";
+            $tableCreationSql .= " `$el` varchar(255) NULL,";
             $tableCreationData[] = $el;
     }
     $tableCreationSql = mb_substr($tableCreationSql, 0, -1);
@@ -36,7 +36,7 @@ if(isset($_FILES['csv'])) {
     fclose($csv);
     $columnsForSql = '(';
     foreach ($tableCreationData as $el) {
-        $columnsForSql .= "$el, ";
+        $columnsForSql .= "`$el`, ";
     }
     $columnsForSql = mb_substr($columnsForSql, 0, -2);
     $columnsForSql .= ')';
